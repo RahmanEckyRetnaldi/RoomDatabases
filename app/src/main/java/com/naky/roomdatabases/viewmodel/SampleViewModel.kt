@@ -1,6 +1,7 @@
 package com.naky.roomdatabases.viewmodel
 
 import android.app.Application
+import android.content.Context
 import androidx.lifecycle.*
 import com.naky.roomdatabases.dao.database.SampleDatabase
 import com.naky.roomdatabases.entity.SampleEntity
@@ -55,3 +56,4 @@ class SampleViewModel(application: Application) : AndroidViewModel(application) 
 //        throw IllegalArgumentException("Unknown ViewModel class")
 //    }
 //}
+

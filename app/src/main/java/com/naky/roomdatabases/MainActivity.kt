@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.naky.roomdatabases.entity.SampleEntity
 import com.naky.roomdatabases.ui.theme.RoomDatabasesTheme
@@ -48,7 +49,6 @@ val insertSampleData = listOf(
 @Composable
 fun CallDatabase(){
     val context = LocalContext.current
-    val sampleViewModel : SampleViewModel = viewModel(
-    )
+    val sampleViewModel : SampleViewModel = viewModel()
     sampleViewModel.addSample(insertSampleData)
 }

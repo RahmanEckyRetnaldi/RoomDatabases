@@ -1,3 +1,5 @@
+import Libs.AndroidX.Compose.compose_version
+
 plugins {
     id ("com.android.application")
     id ("org.jetbrains.kotlin.android")
@@ -38,28 +40,29 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.2.0-alpha02"
+        kotlinCompilerExtensionVersion = "1.0.1"
     }
     packagingOptions {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
 }
 
 dependencies {
 
     implementation ("androidx.core:core-ktx:1.7.0")
-    implementation ("androidx.compose.ui:ui:1.2.0-alpha02")
-    implementation ("androidx.compose.material:material:1.2.0-alpha02")
-    implementation ("androidx.compose.ui:ui-tooling-preview:1.2.0-alpha02")
+    implementation ("androidx.compose.ui:ui:1.1.1")
+    implementation ("androidx.compose.material:material:1.1.1")
+    implementation ("androidx.compose.ui:ui-tooling-preview:1.1.1")
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
     implementation ("androidx.activity:activity-compose:1.3.1")
-    testImplementation ("androidx.compose.ui:ui-test-junit4:1.2.0-alpha02")
+    testImplementation ("androidx.compose.ui:ui-test-junit4:1.1.1")
     androidTestImplementation ("androidx.test.ext:junit:1.1.3")
     androidTestImplementation ("androidx.test.espresso:espresso-core:3.4.0")
-    androidTestImplementation ("androidx.compose.ui:ui-test-junit4:1.2.0-alpha02")
-    debugImplementation ("androidx.compose.ui:ui-tooling:1.2.0-alpha02")
+    androidTestImplementation ("androidx.compose.ui:ui-test-junit4:1.1.1")
+    debugImplementation ("androidx.compose.ui:ui-tooling:1.1.1")
 
     val roomVersion = "2.4.2"
     implementation("androidx.room:room-runtime:$roomVersion")
@@ -67,9 +70,12 @@ dependencies {
     implementation ("androidx.room:room-ktx:2.3.0")
     kapt ("androidx.room:room-compiler:2.3.0")
     val lifecycle_version = "2.5.0-alpha06"
+    val arch_version = "2.1.0"
 
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
     // ViewModel utilities for Compose
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version")
+
+
 }

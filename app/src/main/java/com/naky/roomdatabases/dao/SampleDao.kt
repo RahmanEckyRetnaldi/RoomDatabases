@@ -10,8 +10,8 @@ interface SampleDao {
     @Query("SELECT * FROM SampleData")
     fun getAllData(): LiveData<List<SampleEntity>>
 
-    @Query("SELECT * FROM SampleData WHERE id = id")
-    fun getById(id: Int): SampleEntity?
+    @Query("SELECT * FROM SampleData WHERE id = :id")
+    fun getById(id : Int): SampleEntity?
 
     @Insert
     suspend fun insert(item: List<SampleEntity>)

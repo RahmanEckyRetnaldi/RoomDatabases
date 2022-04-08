@@ -6,11 +6,11 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.naky.roomdatabases.entity.SampleEntity
 import com.naky.roomdatabases.ui.theme.RoomDatabasesTheme
 import com.naky.roomdatabases.viewmodel.SampleViewModel
-import com.naky.roomdatabases.viewmodel.SampleViewModelFactory
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -49,7 +49,6 @@ val insertSampleData = listOf(
 fun CallDatabase(){
     val context = LocalContext.current
     val sampleViewModel : SampleViewModel = viewModel(
-        factory = SampleViewModelFactory(context.applicationContext as Application)
     )
     sampleViewModel.addSample(insertSampleData)
 }

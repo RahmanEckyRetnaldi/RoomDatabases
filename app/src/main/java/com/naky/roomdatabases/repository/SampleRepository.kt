@@ -8,9 +8,8 @@ class SampleRepository(val sampleDao: SampleDao) {
 
     val readAllData: LiveData<List<SampleEntity>> = sampleDao.getAllData()
 
-    suspend fun getById(id : Int) : SampleEntity? {
-        val data = sampleDao.getById(id)
-        return data
+    fun getById(id : Int) : SampleEntity? {
+        return sampleDao.getById(id)
     }
 
     suspend fun addSample(item: List<SampleEntity>) {

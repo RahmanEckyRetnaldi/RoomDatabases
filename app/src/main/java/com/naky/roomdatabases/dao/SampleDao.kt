@@ -11,9 +11,9 @@ interface SampleDao {
     fun getAllData(): LiveData<List<SampleEntity>>
 
     @Query("SELECT * FROM SampleData WHERE id = :id")
-    fun getById(id : Int): SampleEntity?
+    fun getById(id : Int): SampleEntity
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE) //conflict the data
     suspend fun insert(item: List<SampleEntity>)
 
     @Update

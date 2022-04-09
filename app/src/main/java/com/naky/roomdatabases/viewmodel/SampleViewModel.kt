@@ -12,8 +12,8 @@ import java.lang.IllegalArgumentException
 
 class SampleViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val readAllData : LiveData<List<SampleEntity>>
-    private val repository : SampleRepository
+    val readAllData: LiveData<List<SampleEntity>>
+    private val repository: SampleRepository
 
     init {
         val sampleDao = SampleDatabase.getInstance(application).sampleDao()
@@ -21,25 +21,34 @@ class SampleViewModel(application: Application) : AndroidViewModel(application) 
         readAllData = repository.readAllData
     }
 
-    fun addSample(item : List<SampleEntity>){
+    fun getById(id : Int) : SampleEntity?{
+        var data : SampleEntity? = null
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.getById(id)
+            data = repository.getById(id)
+        }
+        return data
+    }
+
+    fun addSample(item: List<SampleEntity>) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addSample(item)
         }
     }
 
-    fun updateSample(item: SampleEntity){
+    fun updateSample(item: SampleEntity) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.updateSample(item)
         }
     }
 
-    fun deleteSample(item: SampleEntity){
+    fun deleteSample(item: SampleEntity) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.deleteSample(item)
         }
     }
 
-    fun deleteAllRecord(){
+    fun deleteAllRecord() {
         viewModelScope.launch(Dispatchers.IO) {
             repository.deleteAllRecord()
         }
